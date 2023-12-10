@@ -64,20 +64,20 @@ const getPorts = async (): Promise<string[]> => {
 export async function usePorts() {
   const [a, b, c, d, e, f] = await getPorts();
   if (!isE2E()) {
-    process.env.PROTO_PORT = a;
-    process.env.PROTO_INTERNAL_PORT = b;
-    process.env.HTTP_PORT = c;
-    process.env.HTTP_INTERNAL_PORT = d;
-    process.env.WORKERS_PORT = e;
-    process.env.WS_PORT = f;
+    process.env.ASIO_MS_PUBLIC_PORT = a;
+    process.env.ASIO_MS_PRIVATE_PORT = b;
+    process.env.ASIO_HTTP_PUBLIC_PORT = c;
+    process.env.ASIO_HTTP_PRIVATE_PORT = d;
+    process.env.ASIO_WORKERS_PORT = e;
+    process.env.ASIO_PUBSUB_PORT = f;
   }
   const ports = {
-    proto: Number(process.env.PROTO_PORT || 0),
-    protoInternal: Number(process.env.PROTO_INTERNAL_PORT || 0),
-    http: Number(process.env.HTTP_PORT || 0),
-    httpInternal: Number(process.env.HTTP_INTERNAL_PORT || 0),
-    workers: Number(process.env.WORKERS_PORT || 0),
-    ws: Number(process.env.WS_PORT || 0),
+    proto: Number(process.env.ASIO_MS_PUBLIC_PORT || 0),
+    protoInternal: Number(process.env.ASIO_MS_PRIVATE_PORT || 0),
+    http: Number(process.env.ASIO_HTTP_PUBLIC_PORT || 0),
+    httpInternal: Number(process.env.ASIO_HTTP_PRIVATE_PORT || 0),
+    workers: Number(process.env.ASIO_WORKERS_PORT || 0),
+    ws: Number(process.env.ASIO_PUBSUB_PORT || 0),
   };
   return ports;
 }
