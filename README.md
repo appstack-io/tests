@@ -1,1 +1,1 @@
-# tests
+# @appstack-io/tests
