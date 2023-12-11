@@ -112,8 +112,13 @@ export function retry(
   };
 }
 
-export async function getArangoDb() {
+export async function setupArangoDb() {
   const arangodb: ArangodbService = new ArangodbService(new ArangodbUtils());
   await arangodb.initDb();
+  return arangodb;
+}
+
+export async function getArangoDb() {
+  const arangodb = await setupArangoDb();
   return arangodb.db;
 }
