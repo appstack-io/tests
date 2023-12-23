@@ -114,7 +114,7 @@ export function retry(
 
 export async function setupArangoDb() {
   const arangodb: ArangodbService = new ArangodbService(new ArangodbUtils());
-  await arangodb.initDb();
+  await arangodb.utils.createAppDb();
   return arangodb;
 }
 
